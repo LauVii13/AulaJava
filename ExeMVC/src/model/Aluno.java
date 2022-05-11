@@ -7,6 +7,7 @@ public class Aluno {
         this.nome = nome;
         this.idade = idade;
     }
+    
     private int idade;
 
     public String getNome() {

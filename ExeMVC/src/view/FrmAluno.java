@@ -6,6 +6,9 @@
 package view;
 
 import control.AlunoController;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import model.Aluno;
 
 /**
  *
@@ -13,13 +16,13 @@ import control.AlunoController;
  */
 public class FrmAluno extends javax.swing.JFrame {
 
-    private AlunoController a1Controle;
+    private AlunoController alControle;
     
     /**
      * Creates new form FrmAluno
      */
     public FrmAluno() {
-        a1Controle = new AlunoController();
+        alControle = new AlunoController();
         initComponents();
         
     }
@@ -38,8 +41,7 @@ public class FrmAluno extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         lblIdade = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
-        bntBuscar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        bntMostrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,48 +63,51 @@ public class FrmAluno extends javax.swing.JFrame {
             }
         });
 
-        bntBuscar.setText("Buscar");
+        bntMostrar.setText("Mostrar");
+        bntMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntMostrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCadastrar)
-                        .addGap(34, 34, 34)
-                        .addComponent(bntBuscar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblNome)
                             .addComponent(lblIdade))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNome)
-                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addComponent(bntMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNome))
-                .addGap(49, 49, 49)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIdade))
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar)
-                    .addComponent(bntBuscar)
-                    .addComponent(jButton1))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addComponent(btnCadastrar)
+                .addGap(18, 18, 18)
+                .addComponent(bntMostrar)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,9 +120,22 @@ public class FrmAluno extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         String nome = txtNome.getText();
         int idade = Integer.parseInt(txtIdade.getText());
-        //controle.adastrar(nome, idade);
-        a1Controle.cadastrar(nome, idade);
+    
+        alControle.cadastrar(nome, idade);
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void bntMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMostrarActionPerformed
+        ArrayList <Aluno> lista = alControle.getLista();
+        String result = new String();
+        
+        for(Aluno a : lista)
+        {
+            result = result.concat(a.getNome() + " " + a.getIdade() + "\n");
+        }
+        
+        JOptionPane.showMessageDialog(null, result);
+
+    }//GEN-LAST:event_bntMostrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,9 +173,8 @@ public class FrmAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntBuscar;
+    private javax.swing.JButton bntMostrar;
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblIdade;
     private javax.swing.JLabel lblNome;
     private javax.swing.JTextField txtIdade;
@@ -165,10 +182,10 @@ public class FrmAluno extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public AlunoController getA1Controle() {
-        return a1Controle;
+        return alControle;
     }
 
     public void setA1Controle(AlunoController a1Controle) {
-        this.a1Controle = a1Controle;
+        this.alControle = a1Controle;
     }
 }
