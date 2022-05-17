@@ -22,4 +22,16 @@ public class AlunoController {
         Aluno al = new Aluno(nome, idade);
         lista.add(al);        
     }
+    
+    public void excluir(String name)
+    {
+        for (Aluno a: lista)
+        {
+            if(a.getNome().equals(name))
+            {
+                lista.remove(a);
+                break;
+            }
+        }
+    }
 }

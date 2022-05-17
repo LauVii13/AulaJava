@@ -9,6 +9,7 @@ import control.AlunoController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Aluno;
+import model.StringVaziaException;
 
 /**
  *
@@ -42,6 +43,10 @@ public class FrmAluno extends javax.swing.JFrame {
         lblIdade = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         bntMostrar = new javax.swing.JButton();
+        bntLimpar = new javax.swing.JButton();
+        lblIdade1 = new javax.swing.JLabel();
+        txtExcluir = new javax.swing.JTextField();
+        bntExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,26 +75,53 @@ public class FrmAluno extends javax.swing.JFrame {
             }
         });
 
+        bntLimpar.setText("Limpar");
+        bntLimpar.setToolTipText("");
+        bntLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntLimparActionPerformed(evt);
+            }
+        });
+
+        lblIdade1.setText("N.E :");
+
+        bntExcluir.setText("Excluir");
+        bntExcluir.setToolTipText("");
+        bntExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNome)
-                            .addComponent(lblIdade))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNome)
-                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-                            .addComponent(bntMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblIdade1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bntExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(59, 59, 59)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblNome)
+                                .addComponent(lblIdade))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNome)
+                                .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                                .addComponent(bntMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bntLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,7 +139,14 @@ public class FrmAluno extends javax.swing.JFrame {
                 .addComponent(btnCadastrar)
                 .addGap(18, 18, 18)
                 .addComponent(bntMostrar)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(bntLimpar)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdade1)
+                    .addComponent(bntExcluir))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,10 +157,32 @@ public class FrmAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        String nome = txtNome.getText();
-        int idade = Integer.parseInt(txtIdade.getText());
+        
+        try{
+            String nome = txtNome.getText();
+            int idade = Integer.parseInt(txtIdade.getText());
     
-        alControle.cadastrar(nome, idade);
+            if(nome.equals(""))
+            {
+                throw new StringVaziaException();
+            }   
+            
+            alControle.cadastrar(nome, idade);
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "deve ser numero");
+
+        }
+        catch(StringVaziaException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+
+        }
+        finally{
+            txtNome.requestFocus();
+        }
+                       
+        bntLimparActionPerformed(evt);
+        txtNome.requestFocus();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void bntMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMostrarActionPerformed
@@ -136,6 +197,29 @@ public class FrmAluno extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, result);
 
     }//GEN-LAST:event_bntMostrarActionPerformed
+
+    private void bntLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntLimparActionPerformed
+        // TODO add your handling code here:
+        txtNome.setText("");
+        txtIdade.setText("");
+        
+        txtNome.requestFocus();
+
+    }//GEN-LAST:event_bntLimparActionPerformed
+
+    private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
+        String nExluir =  txtExcluir.getText();
+         
+        int resp = JOptionPane.showConfirmDialog(null, "Defalut" + "excluir" + "aaaa" + "a");
+       
+        if(resp == 1)
+        {
+            alControle.excluir(nExluir);
+        }
+         
+        txtExcluir.requestFocus();
+         
+    }//GEN-LAST:event_bntExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,10 +257,14 @@ public class FrmAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntExcluir;
+    private javax.swing.JButton bntLimpar;
     private javax.swing.JButton bntMostrar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JLabel lblIdade;
+    private javax.swing.JLabel lblIdade1;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JTextField txtExcluir;
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
