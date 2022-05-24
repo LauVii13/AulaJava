@@ -8,6 +8,7 @@ package view;
 import control.AlunoController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Aluno;
 import model.StringVaziaException;
 
@@ -18,14 +19,19 @@ import model.StringVaziaException;
 public class FrmAluno extends javax.swing.JFrame {
 
     private AlunoController alControle;
+    private DefaultTableModel tbl;
     
     /**
      * Creates new form FrmAluno
      */
     public FrmAluno() {
+        tbl = new DefaultTableModel();
         alControle = new AlunoController();
-        initComponents();
         
+        tbl.addColumn("Nome");
+        tbl.addColumn("Idade");
+        tbl.setNumRows(0);
+        initComponents();
     }
 
     /**
@@ -47,6 +53,8 @@ public class FrmAluno extends javax.swing.JFrame {
         lblIdade1 = new javax.swing.JLabel();
         txtExcluir = new javax.swing.JTextField();
         bntExcluir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAlunos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,60 +101,82 @@ public class FrmAluno extends javax.swing.JFrame {
             }
         });
 
+        tblAlunos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nome", "Idade"
+            }
+        ));
+        tblAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAlunosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblAlunos);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNome)
+                            .addComponent(lblIdade))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNome)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblIdade1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bntExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(59, 59, 59)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblNome)
-                                .addComponent(lblIdade))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNome)
-                                .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblIdade1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bntExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                                 .addComponent(bntMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(bntLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNome))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIdade))
-                .addGap(33, 33, 33)
-                .addComponent(btnCadastrar)
-                .addGap(18, 18, 18)
-                .addComponent(bntMostrar)
-                .addGap(18, 18, 18)
-                .addComponent(bntLimpar)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIdade1)
-                    .addComponent(bntExcluir))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNome))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblIdade))
+                        .addGap(33, 33, 33)
+                        .addComponent(btnCadastrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(bntMostrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(bntLimpar)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblIdade1)
+                            .addComponent(bntExcluir)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,6 +198,8 @@ public class FrmAluno extends javax.swing.JFrame {
             }   
             
             alControle.cadastrar(nome, idade);
+            bntLimparActionPerformed(evt);
+            bntMostrarActionPerformed(evt);
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "deve ser numero");
@@ -181,45 +213,58 @@ public class FrmAluno extends javax.swing.JFrame {
             txtNome.requestFocus();
         }
                        
-        bntLimparActionPerformed(evt);
+        
         txtNome.requestFocus();
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void bntMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMostrarActionPerformed
+       
         ArrayList <Aluno> lista = alControle.getLista();
         String result = new String();
-        
+        tbl.setNumRows(0);
         for(Aluno a : lista)
         {
-            result = result.concat(a.getNome() + " " + a.getIdade() + "\n");
+            //result = result.concat(a.getNome() + " " + a.getIdade() + "\n");
+            tbl.addRow(new Object[]{a.getNome(), a.getIdade()});
+            tblAlunos.setModel(tbl);
         }
         
-        JOptionPane.showMessageDialog(null, result);
+        //JOptionPane.showMessageDialog(null, result);
 
     }//GEN-LAST:event_bntMostrarActionPerformed
 
     private void bntLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntLimparActionPerformed
         // TODO add your handling code here:
-        txtNome.setText("");
+        /*txtNome.setText("");
         txtIdade.setText("");
         
-        txtNome.requestFocus();
+        txtNome.requestFocus();*/
+        txtNome.setText("");
+        txtIdade.setText("");
+        tbl.setNumRows(0);
 
     }//GEN-LAST:event_bntLimparActionPerformed
 
     private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
         String nExluir =  txtExcluir.getText();
          
-        int resp = JOptionPane.showConfirmDialog(null, "Defalut" + "excluir" + "aaaa" + "a");
+        int resp = JOptionPane.showConfirmDialog(null, "Defalut" + "excluir" + txtExcluir.getText());
        
         if(resp == 1)
         {
             alControle.excluir(nExluir);
         }
-         
-        txtExcluir.requestFocus();
+        
+        bntMostrarActionPerformed(evt);
          
     }//GEN-LAST:event_bntExcluirActionPerformed
+
+    private void tblAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlunosMouseClicked
+        int linhaSelec = tblAlunos.getSelectedRow();
+        String nome = tblAlunos.getValueAt(linhaSelec, 0).toString();
+        txtExcluir.setText(nome);
+    }//GEN-LAST:event_tblAlunosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -261,9 +306,11 @@ public class FrmAluno extends javax.swing.JFrame {
     private javax.swing.JButton bntLimpar;
     private javax.swing.JButton bntMostrar;
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIdade;
     private javax.swing.JLabel lblIdade1;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JTable tblAlunos;
     private javax.swing.JTextField txtExcluir;
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNome;
