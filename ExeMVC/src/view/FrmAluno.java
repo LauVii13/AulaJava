@@ -227,8 +227,8 @@ public class FrmAluno extends javax.swing.JFrame {
         {
             //result = result.concat(a.getNome() + " " + a.getIdade() + "\n");
             tbl.addRow(new Object[]{a.getNome(), a.getIdade()});
-            tblAlunos.setModel(tbl);
         }
+            tblAlunos.setModel(tbl);
         
         //JOptionPane.showMessageDialog(null, result);
 
@@ -251,7 +251,7 @@ public class FrmAluno extends javax.swing.JFrame {
          
         int resp = JOptionPane.showConfirmDialog(null, "Defalut" + "excluir" + txtExcluir.getText());
        
-        if(resp == 1)
+        if(resp == 0)
         {
             alControle.excluir(nExluir);
         }

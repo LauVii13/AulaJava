@@ -20,7 +20,16 @@ public class contoleAtletas {
         conAtletas.add(a);
     }
     
-    
-    
+    public void excluir(String name)
+    {
+        for (Atleta a: conAtletas)
+        {
+            if(a.getNome().equals(name))
+            {
+                conAtletas.remove(a);
+                break;
+            }
+        }
+    } 
     
 }

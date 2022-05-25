@@ -6,7 +6,10 @@
 package view;
 
 import control.contoleAtletas;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Atleta;
 import model.NegativeExceptiobn;
 import model.NullExceptiobn;
 
@@ -17,13 +20,24 @@ import model.NullExceptiobn;
 public class formAtleta extends javax.swing.JFrame {
 
     contoleAtletas listAtleta;
+    private DefaultTableModel tbl;
+    String excluir;
     
     /**
      * Creates new form formAtleta
      */
     public formAtleta() {
         initComponents();
+        tbl = new DefaultTableModel();
         listAtleta = new contoleAtletas();
+        
+        tbl.addColumn("Codigo");
+        tbl.addColumn("Nome");
+        tbl.addColumn("Peso");
+        tbl.addColumn("Altura");
+        tbl.addColumn("Idade");
+        
+        tbl.setNumRows(0);
     }
 
     /**
@@ -49,6 +63,9 @@ public class formAtleta extends javax.swing.JFrame {
         btnPeso = new javax.swing.JButton();
         btnMais = new javax.swing.JButton();
         btnIdade = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAtleta = new javax.swing.JTable();
+        btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,8 +94,51 @@ public class formAtleta extends javax.swing.JFrame {
         });
 
         btnMais.setText("Mais Alto");
+        btnMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaisActionPerformed(evt);
+            }
+        });
 
         btnIdade.setText("Idade");
+        btnIdade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIdadeActionPerformed(evt);
+            }
+        });
+
+        tblAtleta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Nome", "Peso", "Altura", "Idade"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblAtleta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAtletaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblAtleta);
+
+        btnExcluir.setText("excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,79 +146,99 @@ public class formAtleta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(51, 51, 51))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(28, 28, 28)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblIdade)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblCodigo)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblNome)
-                                            .addComponent(lblPeso))
-                                        .addGap(24, 24, 24)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(lblCodigo)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblAltura)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblNome)
+                                        .addComponent(lblPeso)
+                                        .addComponent(lblIdade))
+                                    .addGap(23, 23, 23)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                                             .addComponent(txtPeso)
-                                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addComponent(lblAltura))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnCadastrar)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(btnPeso)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnMais)))))
+                                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCadastrar)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnPeso)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMais))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(btnIdade)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                        .addGap(84, 84, 84)
+                        .addComponent(btnIdade)
+                        .addGap(47, 47, 47)
+                        .addComponent(btnExcluir)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNome)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPeso)
-                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAltura)
-                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdade)
-                    .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar)
-                    .addComponent(btnPeso)
-                    .addComponent(btnMais))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnIdade)
-                .addGap(23, 23, 23))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCodigo)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNome)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPeso)
+                            .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAltura)
+                            .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdade)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCadastrar)
+                            .addComponent(btnPeso)
+                            .addComponent(btnMais))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnIdade)
+                            .addComponent(btnExcluir))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+    public void mostrar()
+    {
+        tbl.setNumRows(0);
         
+        ArrayList <Atleta> lista = listAtleta.getConAtletas();
+                
+        for(Atleta a : lista)
+        {
+            tbl.addRow(new Object[]{a.getNome(), a.getIdade(), a.getPeso(), a.getAltura(), a.getIdade()});
+        }
+                
+        tblAtleta.setModel(tbl);
+    }
+    
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+               
         try{
             int codigo = Integer.parseInt(txtCodigo.getText());
             String nome = txtNome.getText();
@@ -178,7 +258,8 @@ public class formAtleta extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "Cadastrado com Sus");
                 listAtleta.addAtletas(codigo, nome, peso, altura, idade);
-
+                
+                mostrar();
             }
             
         }
@@ -195,8 +276,68 @@ public class formAtleta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesoActionPerformed
-        // TODO add your handling code here:
+        ArrayList <Atleta> lista = listAtleta.getConAtletas();
+        double mediaPeso = 0;
+        int cont = 0;
+        
+        for(Atleta a : lista)
+        {
+            mediaPeso += a.getPeso();
+            cont++;
+        }
+        
+        mediaPeso /= cont;
+        
+        JOptionPane.showMessageDialog(null, "Média de peso dos atletas: " + mediaPeso);
     }//GEN-LAST:event_btnPesoActionPerformed
+
+    private void btnMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaisActionPerformed
+        ArrayList <Atleta> lista = listAtleta.getConAtletas();
+        Atleta maisAlto = new Atleta(0, "", 0, 0, 0);
+        
+        for(Atleta a : lista)
+        {
+            if(maisAlto.getAltura()< a.getAltura())
+            {
+                maisAlto = a;
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "Atleta mais Alto: " + maisAlto.getNome());
+    }//GEN-LAST:event_btnMaisActionPerformed
+
+    private void btnIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdadeActionPerformed
+        ArrayList <Atleta> lista = listAtleta.getConAtletas();
+        int maior = 0;
+        int menor = 0;
+        
+        for(Atleta a : lista)
+        {
+            if(a.getIdade() < 18)
+                menor++;
+            else
+                maior++;
+        }
+        
+        JOptionPane.showMessageDialog(null, "Atletas Maiores de Idade: " + maior + "\nAtletas Menores de Idade: " + menor);
+    }//GEN-LAST:event_btnIdadeActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        
+        int resp = JOptionPane.showConfirmDialog(null, "Defalut" + "excluir" + excluir);
+       
+        if(resp == 0)
+        {
+            listAtleta.excluir(excluir);
+        }
+        
+        mostrar();
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void tblAtletaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAtletaMouseClicked
+        int linhaSelec = tblAtleta.getSelectedRow();
+        excluir = tblAtleta.getValueAt(linhaSelec, 0).toString();
+    }//GEN-LAST:event_tblAtletaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -235,14 +376,17 @@ public class formAtleta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnIdade;
     private javax.swing.JButton btnMais;
     private javax.swing.JButton btnPeso;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAltura;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblIdade;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPeso;
+    private javax.swing.JTable tblAtleta;
     private javax.swing.JTextField txtAltura;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtIdade;
