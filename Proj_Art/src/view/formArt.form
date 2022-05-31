@@ -87,6 +87,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar Art"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadPixArtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCadUser2">
       <Properties>
@@ -95,6 +98,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Dados do Sistema"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadUser2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

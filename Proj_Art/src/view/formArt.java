@@ -49,9 +49,19 @@ public class formArt extends javax.swing.JFrame {
 
         btnCadPixArt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadPixArt.setText("Cadastrar Art");
+        btnCadPixArt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadPixArtActionPerformed(evt);
+            }
+        });
 
         btnCadUser2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCadUser2.setText("Dados do Sistema");
+        btnCadUser2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadUser2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,9 +99,22 @@ public class formArt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadUserActionPerformed
+        JFrame j = new formCadUser();
+        j.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCadUserActionPerformed
+
+    private void btnCadPixArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPixArtActionPerformed
         JFrame j = new formCadPixArt();
         j.setVisible(true);
-    }//GEN-LAST:event_btnCadUserActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCadPixArtActionPerformed
+
+    private void btnCadUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadUser2ActionPerformed
+        JFrame j = new formDDS();
+        j.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCadUser2ActionPerformed
 
     /**
      * @param args the command line arguments
