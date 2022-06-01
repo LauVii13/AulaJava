@@ -6,9 +6,11 @@ public class Prod {
     private String autor;
     private double sizeX;
     private double sizeY;
+    private String name;
 
-    public Prod(int id, String style, String autor, double sizeX, double sizeY) {
+    public Prod(int id, String name, String style, String autor, double sizeX, double sizeY) {
         this.id = id;
+        this.name = name;
         this.style = style;
         this.autor = autor;
         this.sizeX = sizeX;
@@ -17,10 +19,19 @@ public class Prod {
     
     public Prod() {
         this.id = 0;
+        this.name = "";
         this.style = "";
         this.autor = "";
         this.sizeX = 0;
         this.sizeY = 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {

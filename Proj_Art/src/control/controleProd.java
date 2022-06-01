@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import model.Prod;
 
 public class controleProd {
-    private ArrayList <Prod> conProd;
-    private int auxId = 0;
+    static private ArrayList <Prod> conProd;
+    static private int auxId = 0;
     
     public controleProd(){
         conProd = new ArrayList();
@@ -15,10 +15,10 @@ public class controleProd {
         return conProd;
     }
      
-    public void addProd(String style, String autor, double sizeX, double sizeY){
+    public void addProd(String name, String style, String autor, double sizeX, double sizeY){
         auxId++;
         
-        Prod p = new Prod(auxId, style, autor, sizeX, sizeY);
+        Prod p = new Prod(auxId, name, style, autor, sizeX, sizeY);
         
         conProd.add(p);
     }

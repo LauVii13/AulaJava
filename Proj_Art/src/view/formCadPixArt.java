@@ -5,17 +5,26 @@
  */
 package view;
 
+import control.controleProd;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import model.NotNegativeException;
+import model.NullException;
+
 /**
  *
  * @author aluno
  */
 public class formCadPixArt extends javax.swing.JFrame {
 
-    /**
-     * Creates new form formCadPixArt
-     */
+    controleProd ctrP;
+        
     public formCadPixArt() {
+        setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+        ctrP = new controleProd();
     }
 
     /**
@@ -27,36 +36,171 @@ public class formCadPixArt extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        a = new javax.swing.JLabel();
+        label3 = new javax.swing.JLabel();
+        btnCadastrar = new javax.swing.JButton();
+        bntVolta = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JLabel();
+        txtSizeY = new javax.swing.JTextField();
+        txtStyle = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        label1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtAutor = new javax.swing.JTextField();
+        label2 = new javax.swing.JLabel();
+        txtSizeX = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
-        a.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        a.setText("pixAr");
+        label3.setText("Largura:");
+
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+
+        bntVolta.setText("Voltar");
+        bntVolta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntVoltaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Cadastro Produto");
+
+        txtAge.setText("Altura:");
+
+        label1.setText("Estilo:");
+
+        jLabel1.setText("Nome:");
+
+        label2.setText("Autor:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(93, 93, 93)
-                    .addComponent(a)
-                    .addContainerGap(226, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnCadastrar)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(39, 39, 39)
+                                    .addComponent(label1))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(label3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtSizeY, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtStyle)
+                                        .addComponent(txtAutor)
+                                        .addComponent(txtSizeX, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(bntVolta)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(128, 128, 128)
-                    .addComponent(a)
-                    .addContainerGap(128, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStyle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSizeX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSizeY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAge))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCadastrar)
+                .addGap(13, 13, 13)
+                .addComponent(bntVolta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+    }//GEN-LAST:event_formWindowClosing
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        try{
+            String nome = txtName.getText();
+            String style = txtStyle.getText();
+            String autor = txtAutor.getText();
+            double sizeX = Double.parseDouble(txtSizeX.getText());
+            double sizeY = Double.parseDouble(txtSizeY.getText());
+
+            if(txtName.getText().equals("") || txtStyle.getText().equals("") || txtAutor.getText().equals("") || txtSizeX.getText().equals("") || txtSizeY.getText().equals(""))
+            {
+                throw new NullException();
+            }
+            else if(sizeX <= 0 || sizeY <= 0)
+            {
+                throw new NotNegativeException();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Obra Cadastrada");
+            }
+
+            ctrP.addProd(nome, style, autor, sizeX, sizeY);
+        }
+        catch(NullException e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        catch(NotNegativeException e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        catch(NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void bntVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVoltaActionPerformed
+        JFrame j = new formArt();
+        j.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bntVoltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +238,18 @@ public class formCadPixArt extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel a;
+    private javax.swing.JButton bntVolta;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel label1;
+    private javax.swing.JLabel label2;
+    private javax.swing.JLabel label3;
+    private javax.swing.JLabel txtAge;
+    private javax.swing.JTextField txtAutor;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtSizeX;
+    private javax.swing.JTextField txtSizeY;
+    private javax.swing.JTextField txtStyle;
     // End of variables declaration//GEN-END:variables
 }

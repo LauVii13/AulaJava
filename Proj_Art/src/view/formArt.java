@@ -5,6 +5,9 @@
  */
 package view;
 
+import control.controleClient;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
@@ -13,11 +16,9 @@ import javax.swing.JFrame;
  */
 public class formArt extends javax.swing.JFrame {
 
-    /**
-     * Creates new form formArt
-     */
-    public formArt() {
+    public formArt() {       
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

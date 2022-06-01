@@ -5,17 +5,27 @@
  */
 package view;
 
+import control.controleClient;
+import control.controleProd;
+import javax.swing.JFrame;
+
 /**
  *
  * @author aluno
  */
 public class formDDS extends javax.swing.JFrame {
 
-    /**
-     * Creates new form formDDS
-     */
+    controleClient ctrC;
+    controleProd ctrP;
+        
     public formDDS() {
+        setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+        ctrC = new controleClient();
+        ctrP = new controleProd();
+
     }
 
     /**
@@ -28,11 +38,19 @@ public class formDDS extends javax.swing.JFrame {
     private void initComponents() {
 
         ac = new javax.swing.JLabel();
+        bntVolta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ac.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         ac.setText("DDS");
+
+        bntVolta.setText("Voltar");
+        bntVolta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntVoltaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -44,6 +62,11 @@ public class formDDS extends javax.swing.JFrame {
                     .addGap(93, 93, 93)
                     .addComponent(ac)
                     .addContainerGap(239, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(169, 169, 169)
+                    .addComponent(bntVolta)
+                    .addContainerGap(170, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -53,10 +76,21 @@ public class formDDS extends javax.swing.JFrame {
                     .addGap(128, 128, 128)
                     .addComponent(ac)
                     .addContainerGap(128, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(138, 138, 138)
+                    .addComponent(bntVolta)
+                    .addContainerGap(139, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bntVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVoltaActionPerformed
+        JFrame j = new formArt();
+        j.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bntVoltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,5 +129,6 @@ public class formDDS extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ac;
+    private javax.swing.JButton bntVolta;
     // End of variables declaration//GEN-END:variables
 }
