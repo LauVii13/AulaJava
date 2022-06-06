@@ -20,7 +20,6 @@ public class formCadUser extends javax.swing.JFrame {
     controleClient ctrC;
         
     public formCadUser() {
-        setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         
@@ -37,7 +36,7 @@ public class formCadUser extends javax.swing.JFrame {
     private void initComponents() {
 
         bntVolta = new javax.swing.JButton();
-        txtName = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         label1 = new javax.swing.JLabel();
@@ -90,12 +89,12 @@ public class formCadUser extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCadastrar)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtAge)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(bntVolta)
-                    .addComponent(btnCadastrar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +110,7 @@ public class formCadUser extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGap(13, 13, 13)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtName)
+                                .addComponent(txtNome)
                                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -122,7 +121,7 @@ public class formCadUser extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -140,9 +139,9 @@ public class formCadUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAge))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(btnCadastrar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bntVolta)
                 .addContainerGap())
         );
@@ -158,13 +157,13 @@ public class formCadUser extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         try{
-            String nome = txtName.getText();
+            String nome = txtNome.getText();
             String user = txtUser.getText();
             String email = txtEmail.getText();
             String pass = txtPass.getText();
             int age = Integer.parseInt(txtAge.getText());
 
-            if(txtName.getText().equals("") || txtUser.getText().equals("") || txtEmail.getText().equals("") || txtPass.getText().equals("") || txtAge.getText().equals(""))
+            if(txtNome.getText().equals("")  || txtUser.getText().equals("") || txtEmail.getText().equals("") || txtPass.getText().equals("") || txtAge.getText().equals(""))
             {
                 throw new NullException();
             }
@@ -238,7 +237,7 @@ public class formCadUser extends javax.swing.JFrame {
     private javax.swing.JLabel label3;
     private javax.swing.JLabel txtAge;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPass;
     private javax.swing.JTextField txtPass1;
     private javax.swing.JTextField txtUser;

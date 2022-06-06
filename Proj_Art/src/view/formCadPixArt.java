@@ -20,7 +20,6 @@ public class formCadPixArt extends javax.swing.JFrame {
     controleProd ctrP;
         
     public formCadPixArt() {
-        setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
         

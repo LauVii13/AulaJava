@@ -11,7 +11,7 @@ public class controleClient {
         conClient = new ArrayList();
     }
 
-    public ArrayList getConProd() {
+    public ArrayList getConClient() {
         return conClient;
     }
      

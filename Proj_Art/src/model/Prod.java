@@ -7,14 +7,16 @@ public class Prod {
     private double sizeX;
     private double sizeY;
     private String name;
+    private double value;
 
-    public Prod(int id, String name, String style, String autor, double sizeX, double sizeY) {
+    public Prod(int id, String name, String style, String autor, double sizeX, double sizeY, double value) {
         this.id = id;
         this.name = name;
         this.style = style;
         this.autor = autor;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
+        this.value = value;
     }
     
     public Prod() {
@@ -24,6 +26,7 @@ public class Prod {
         this.autor = "";
         this.sizeX = 0;
         this.sizeY = 0;
+        this.value = 0;
     }
 
     public String getName() {
@@ -72,5 +75,13 @@ public class Prod {
 
     public void setSizeY(double sizeY) {
         this.sizeY = sizeY;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }
