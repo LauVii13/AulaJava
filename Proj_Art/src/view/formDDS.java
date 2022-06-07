@@ -69,7 +69,7 @@ public class formDDS extends javax.swing.JFrame {
         btnDescP = new javax.swing.JButton();
         btnFVelhoC = new javax.swing.JButton();
         btnFNovoC = new javax.swing.JButton();
-        btnF60C = new javax.swing.JButton();
+        btnFVidadeC = new javax.swing.JButton();
         btnFMediaC = new javax.swing.JButton();
         btnFCaroP = new javax.swing.JButton();
         btnFBaratoP = new javax.swing.JButton();
@@ -255,11 +255,11 @@ public class formDDS extends javax.swing.JFrame {
             }
         });
 
-        btnF60C.setText("Idade > 60");
-        btnF60C.setEnabled(false);
-        btnF60C.addActionListener(new java.awt.event.ActionListener() {
+        btnFVidadeC.setText("Verif Idade");
+        btnFVidadeC.setEnabled(false);
+        btnFVidadeC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnF60CActionPerformed(evt);
+                btnFVidadeCActionPerformed(evt);
             }
         });
 
@@ -310,8 +310,7 @@ public class formDDS extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(457, 457, 457)
-                .addComponent(ac)
-                .addGap(0, 0, 0))
+                .addComponent(ac))
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +333,7 @@ public class formDDS extends javax.swing.JFrame {
                                     .addComponent(btnNameP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnAutorP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnDescP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnIdP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnIdP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,7 +358,7 @@ public class formDDS extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnFMediaC, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnF60C, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnFVidadeC, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(98, 98, 98)
                         .addComponent(bntVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -389,23 +388,24 @@ public class formDDS extends javax.swing.JFrame {
                             .addComponent(btnUserC)
                             .addComponent(btnAutorP))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEmailC)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEmailC, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnDescP))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnIdC)
                             .addComponent(btnIdP))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFVelhoC)
-                    .addComponent(btnFNovoC)
-                    .addComponent(btnFMediaC)
-                    .addComponent(btnF60C)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnFCaroP)
-                    .addComponent(btnFBaratoP)
-                    .addComponent(btnFMediaP)
-                    .addComponent(btnFAcMediaP))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnFVelhoC)
+                        .addComponent(btnFNovoC)
+                        .addComponent(btnFMediaC)
+                        .addComponent(btnFVidadeC)
+                        .addComponent(btnFBaratoP)
+                        .addComponent(btnFMediaP)
+                        .addComponent(btnFAcMediaP)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExcluirC)
@@ -767,9 +767,10 @@ public class formDDS extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "A média das idades dos Clientes é: " + nF.format(media/aux));
     }//GEN-LAST:event_btnFMediaCActionPerformed
 
-    private void btnF60CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnF60CActionPerformed
+    private void btnFVidadeCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFVidadeCActionPerformed
         ArrayList <Client> listaC = controleClient.getConClient();
         int m60 = 0;
+        int m18 = 0;
         int aux = 0;
         
         for(Client c: listaC)
@@ -778,14 +779,17 @@ public class formDDS extends javax.swing.JFrame {
             {
                 m60++;
             }
+            if(c.getAge() <= 18 )
+            {
+                m18++;
+            }
                 
             aux++;
         }
         
-        JOptionPane.showMessageDialog(null, "De " + String.valueOf(aux) + ", " + String.valueOf(m60) + "tem mais que 60 anos");
-        JOptionPane.showMessageDialog(null, String.valueOf(m60) + " de " + String.valueOf(aux) +" tem mais que 60 anos");
+        JOptionPane.showMessageDialog(null, "60 | " + String.valueOf(m60) + " de " + String.valueOf(aux) +" Clientes tem mais que 60 anos\n18 | " + String.valueOf(m18) + " de " + String.valueOf(aux) +" Clientes tem menos que 18 anos");
 
-    }//GEN-LAST:event_btnF60CActionPerformed
+    }//GEN-LAST:event_btnFVidadeCActionPerformed
 
     private void btnFCaroPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFCaroPActionPerformed
         ArrayList <Pintura> listaP = controlePintura.getConPintura();
@@ -890,13 +894,13 @@ public class formDDS extends javax.swing.JFrame {
             btnFVelhoC.setEnabled(true);
             btnFNovoC.setEnabled(true);
             btnFMediaC.setEnabled(true);
-            btnF60C.setEnabled(true);
+            btnFVidadeC.setEnabled(true);
         }
         else{
             btnFVelhoC.setEnabled(false);
             btnFNovoC.setEnabled(false);
             btnFMediaC.setEnabled(false);
-            btnF60C.setEnabled(false);
+            btnFVidadeC.setEnabled(false);
         }
                 
         for(Client a : listaC)
@@ -942,7 +946,6 @@ public class formDDS extends javax.swing.JFrame {
     private javax.swing.JButton btnEmailC;
     private javax.swing.JButton btnExcluirC;
     private javax.swing.JButton btnExcluirP;
-    private javax.swing.JButton btnF60C;
     private javax.swing.JButton btnFAcMediaP;
     private javax.swing.JButton btnFBaratoP;
     private javax.swing.JButton btnFCaroP;
@@ -950,6 +953,7 @@ public class formDDS extends javax.swing.JFrame {
     private javax.swing.JButton btnFMediaP;
     private javax.swing.JButton btnFNovoC;
     private javax.swing.JButton btnFVelhoC;
+    private javax.swing.JButton btnFVidadeC;
     private javax.swing.JButton btnIdC;
     private javax.swing.JButton btnIdP;
     private javax.swing.JButton btnNameC;
