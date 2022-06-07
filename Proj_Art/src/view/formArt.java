@@ -6,7 +6,7 @@
 package view;
 
 import control.controleClient;
-import control.controleProd;
+import control.controlePintura;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
@@ -21,7 +21,7 @@ public class formArt extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        if(!controleClient.getConClient().isEmpty() || !controleProd.getConProd().isEmpty())
+        if(!controleClient.getConClient().isEmpty() || !controlePintura.getConPintura().isEmpty())
         {
             btnDDS.setEnabled(true);
         }
@@ -42,6 +42,7 @@ public class formArt extends javax.swing.JFrame {
         btnDDS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("not digital art");
@@ -113,7 +114,7 @@ public class formArt extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadUserActionPerformed
 
     private void btnCadPixArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPixArtActionPerformed
-        JFrame j = new formCadPixArt();
+        JFrame j = new formCadPintura();
         j.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCadPixArtActionPerformed
@@ -158,7 +159,8 @@ public class formArt extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadPixArt;
     private javax.swing.JButton btnCadUser;

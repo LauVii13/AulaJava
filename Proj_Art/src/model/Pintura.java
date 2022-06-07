@@ -1,6 +1,6 @@
 package model;
 
-public class Prod {
+public class Pintura {
     private int id;
     private String style;
     private String autor;
@@ -18,7 +18,7 @@ public class Prod {
         this.desc = desc;
     }
 
-    public Prod(int id, String name, String style, String autor, String desc, double sizeX, double sizeY, double value) {
+    public Pintura(int id, String name, String style, String autor, String desc, double sizeX, double sizeY, double value) {
         this.id = id;
         this.name = name;
         this.style = style;
@@ -29,7 +29,7 @@ public class Prod {
         this.value = value;
     }
     
-    public Prod() {
+    public Pintura() {
         this.id = 0;
         this.name = "";
         this.style = "";

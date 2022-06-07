@@ -1,14 +1,14 @@
 package view;
 
 import control.controleClient;
-import control.controleProd;
+import control.controlePintura;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Client;
-import model.Prod;
+import model.Pintura;
 
 public class formDDS extends javax.swing.JFrame {
 
@@ -16,16 +16,10 @@ public class formDDS extends javax.swing.JFrame {
     private DefaultTableModel tblP;
     String excluirC;
     String excluirP;
-    //controleClient ctrC;
-    //controleProd ctrP;
     
     public formDDS() {
         tblC = new DefaultTableModel();
-        tblP = new DefaultTableModel();
-        
-        
-        //ctrC = new controleClient();
-        //ctrP = new controleProd();
+        tblP = new DefaultTableModel();   
         
         tblC.addColumn("ID");
         tblC.addColumn("Nome");
@@ -48,10 +42,8 @@ public class formDDS extends javax.swing.JFrame {
         tblP.setNumRows(0);
 
         initComponents();
-        this.setLocationRelativeTo(null);
-        
-        
-    }
+        this.setLocationRelativeTo(null);   
+     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -62,7 +54,7 @@ public class formDDS extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClient = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblProd = new javax.swing.JTable();
+        tblPintura = new javax.swing.JTable();
         btnExcluirC = new javax.swing.JButton();
         txtPesquisa = new javax.swing.JTextField();
         btnExcluirP = new javax.swing.JButton();
@@ -132,7 +124,7 @@ public class formDDS extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblClient);
 
-        tblProd.setModel(new javax.swing.table.DefaultTableModel(
+        tblPintura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -151,12 +143,12 @@ public class formDDS extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblProd.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblPintura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblProdMouseClicked(evt);
+                tblPinturaMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblProd);
+        jScrollPane2.setViewportView(tblPintura);
 
         btnExcluirC.setText("Exclusão Cliente");
         btnExcluirC.setEnabled(false);
@@ -360,11 +352,7 @@ public class formDDS extends javax.swing.JFrame {
                         .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ac)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(45, 45, 45))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -372,13 +360,16 @@ public class formDDS extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(161, 161, 161)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNameC)
-                            .addComponent(btnEmailC))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUserC)
-                        .addGap(43, 43, 43)
-                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ac)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnNameC)
+                                    .addComponent(btnEmailC))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnUserC)
+                                .addGap(43, 43, 43)
+                                .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnIdP)
@@ -398,9 +389,9 @@ public class formDDS extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(23, 23, 23)
                         .addComponent(ac)
-                        .addGap(5, 5, 5)
+                        .addGap(8, 8, 8)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -522,18 +513,18 @@ public class formDDS extends javax.swing.JFrame {
        
         if(resp == 0)
         {
-            controleProd.excluir(excluirP);
+            controlePintura.excluir(excluirP);
         }        
         
         mostrarP();
         clear();
     }//GEN-LAST:event_btnExcluirPActionPerformed
 
-    private void tblProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdMouseClicked
-        int linhaSelec = tblProd.getSelectedRow();
-        excluirP = tblProd.getValueAt(linhaSelec, 0).toString();      
+    private void tblPinturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPinturaMouseClicked
+        int linhaSelec = tblPintura.getSelectedRow();
+        excluirP = tblPintura.getValueAt(linhaSelec, 0).toString();      
         btnExcluirP.setEnabled(true);
-    }//GEN-LAST:event_tblProdMouseClicked
+    }//GEN-LAST:event_tblPinturaMouseClicked
 
     private void btnNameCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNameCActionPerformed
         ArrayList <Client> listaC = controleClient.getConClient();
@@ -633,11 +624,11 @@ public class formDDS extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIdCActionPerformed
 
     private void btnNamePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNamePActionPerformed
-        ArrayList <Prod> listaP = controleProd.getConProd();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
         String resp = "";
         int aux = 0;
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             if(p.getName().startsWith(txtPesquisa.getText()) || p.getName().contains(txtPesquisa.getText()))
             {
@@ -648,20 +639,20 @@ public class formDDS extends javax.swing.JFrame {
         
         if(aux != 0)
         {
-            JOptionPane.showMessageDialog(null, "Produto(s) com '" + txtPesquisa.getText() +"' no Nome:\n\n" + resp);
+            JOptionPane.showMessageDialog(null, "Pintura(s) com '" + txtPesquisa.getText() +"' no Nome:\n\n" + resp);
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhum Produto com '" + txtPesquisa.getText() +"' no Nome");
+            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhuma Pintura com '" + txtPesquisa.getText() +"' no Nome");
         }
     }//GEN-LAST:event_btnNamePActionPerformed
 
     private void btnAutorPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorPActionPerformed
-        ArrayList <Prod> listaP = controleProd.getConProd();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
         String resp = "";
         int aux = 0;
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             if(p.getAutor().startsWith(txtPesquisa.getText()) || p.getAutor().contains(txtPesquisa.getText()))
             {
@@ -672,20 +663,20 @@ public class formDDS extends javax.swing.JFrame {
         
         if(aux != 0)
         {
-            JOptionPane.showMessageDialog(null, "Produto(s) com '" + txtPesquisa.getText() +"' no Autor:\n\n" + resp);
+            JOptionPane.showMessageDialog(null, "Pintura(s) com '" + txtPesquisa.getText() +"' no Autor:\n\n" + resp);
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhum Produto com '" + txtPesquisa.getText() +"' no Autor");
+            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhuma Pintura com '" + txtPesquisa.getText() +"' no Autor");
         }
     }//GEN-LAST:event_btnAutorPActionPerformed
 
     private void btnIdPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdPActionPerformed
-        ArrayList <Prod> listaP = controleProd.getConProd();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
         String resp = "";
         int aux = 0;
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             if(String.valueOf(p.getId()).trim().equals(txtPesquisa.getText()))
             {
@@ -696,20 +687,20 @@ public class formDDS extends javax.swing.JFrame {
         
         if(aux != 0)
         {
-            JOptionPane.showMessageDialog(null, "O Produto com ID igual a '" + txtPesquisa.getText() +"' é:\n\n" + resp);
+            JOptionPane.showMessageDialog(null, "O Pintura com ID igual a '" + txtPesquisa.getText() +"' é:\n\n" + resp);
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhum Produto com ID igual a '" + txtPesquisa.getText() +"'");
+            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhuma Pintura com ID igual a '" + txtPesquisa.getText() +"'");
         }
     }//GEN-LAST:event_btnIdPActionPerformed
 
     private void btnDescPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescPActionPerformed
-        ArrayList <Prod> listaP = controleProd.getConProd();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
         String resp = "";
         int aux = 0;
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             if(p.getDesc().startsWith(txtPesquisa.getText()) || p.getDesc().contains(txtPesquisa.getText()))
             {
@@ -720,11 +711,11 @@ public class formDDS extends javax.swing.JFrame {
         
         if(aux != 0)
         {
-            JOptionPane.showMessageDialog(null, "Produto(s) com '" + txtPesquisa.getText() +"' na Descrição:\n\n" + resp);
+            JOptionPane.showMessageDialog(null, "Pintura(s) com '" + txtPesquisa.getText() +"' na Descrição:\n\n" + resp);
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhum Produto com '" + txtPesquisa.getText() +"' na Descrição");
+            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhuma Pintura com '" + txtPesquisa.getText() +"' na Descrição");
         }
     }//GEN-LAST:event_btnDescPActionPerformed
 
@@ -831,10 +822,10 @@ public class formDDS extends javax.swing.JFrame {
     }//GEN-LAST:event_btnF60CActionPerformed
 
     private void btnFCaroPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFCaroPActionPerformed
-        ArrayList <Prod> listaP = controleProd.getConProd();
-        Prod mCaro = new Prod();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
+        Pintura mCaro = new Pintura();
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             if(p.getValue()>mCaro.getValue())
             {
@@ -842,14 +833,14 @@ public class formDDS extends javax.swing.JFrame {
             }
         }
         
-        JOptionPane.showMessageDialog(null, "O Produto mais caro é: \n\nID: " + mCaro.getId() + " | Nome: " +  mCaro.getName() + " | Preço: " +  mCaro.getValue());
+        JOptionPane.showMessageDialog(null, "A Pintura mais cara é: \n\nID: " + mCaro.getId() + " | Nome: " +  mCaro.getName() + " | Preço: " +  mCaro.getValue());
     }//GEN-LAST:event_btnFCaroPActionPerformed
 
     private void btnFBaratoPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFBaratoPActionPerformed
-        ArrayList <Prod> listaP = controleProd.getConProd();
-        Prod mBarato = listaP.get(0);
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
+        Pintura mBarato = listaP.get(0);
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             if(p.getValue()<mBarato.getValue())
             {
@@ -857,16 +848,16 @@ public class formDDS extends javax.swing.JFrame {
             }
         }
         
-        JOptionPane.showMessageDialog(null, "O Produto mais barato é: \n\nID: " + mBarato.getId() + " | Nome: " +  mBarato.getName() + " | Preço: " +  mBarato.getValue());
+        JOptionPane.showMessageDialog(null, "A Pintura mais barata é: \n\nID: " + mBarato.getId() + " | Nome: " +  mBarato.getName() + " | Preço: " +  mBarato.getValue());
     }//GEN-LAST:event_btnFBaratoPActionPerformed
 
     public double mediaP()
     {
-        ArrayList <Prod> listaP = controleProd.getConProd();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
         double media = 0;
         int aux = 0;
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             media += p.getValue();
             aux++;
@@ -877,14 +868,14 @@ public class formDDS extends javax.swing.JFrame {
     
     private void btnFMediaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFMediaPActionPerformed
         DecimalFormat nF = new DecimalFormat("#.00");
-        JOptionPane.showMessageDialog(null, "A média de Preço dos Produtos é: " + nF.format(mediaP()));
+        JOptionPane.showMessageDialog(null, "A média de Preço da(s) Pintura(s) é: " + nF.format(mediaP()));
     }//GEN-LAST:event_btnFMediaPActionPerformed
 
     private void btnFAcMediaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFAcMediaPActionPerformed
-        ArrayList <Prod> listaP = controleProd.getConProd();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
         String resp = "";
         
-        for(Prod p: listaP)
+        for(Pintura p: listaP)
         {
             if(p.getValue()>mediaP())
             {
@@ -892,7 +883,7 @@ public class formDDS extends javax.swing.JFrame {
             }
         }
         
-        JOptionPane.showMessageDialog(null, "Produto(s) acima da média de Preço:\n\n" + resp);
+        JOptionPane.showMessageDialog(null, "Pintura(s) acima da média de Preço:\n\n" + resp);
     }//GEN-LAST:event_btnFAcMediaPActionPerformed
 
     public static void main(String args[]) {
@@ -935,6 +926,12 @@ public class formDDS extends javax.swing.JFrame {
             btnFMediaC.setEnabled(true);
             btnF60C.setEnabled(true);
         }
+        else{
+            btnFVelhoC.setEnabled(false);
+            btnFNovoC.setEnabled(false);
+            btnFMediaC.setEnabled(false);
+            btnF60C.setEnabled(false);
+        }
                 
         for(Client a : listaC)
         {
@@ -947,7 +944,7 @@ public class formDDS extends javax.swing.JFrame {
     public void mostrarP(){
         tblP.setNumRows(0);
         
-        ArrayList <Prod> listaP = controleProd.getConProd();
+        ArrayList <Pintura> listaP = controlePintura.getConPintura();
         
         if(!listaP.isEmpty())
         {
@@ -956,13 +953,19 @@ public class formDDS extends javax.swing.JFrame {
             btnFMediaP.setEnabled(true);
             btnFAcMediaP.setEnabled(true);
         }
+        else{
+            btnFCaroP.setEnabled(false);
+            btnFBaratoP.setEnabled(false);
+            btnFMediaP.setEnabled(false);
+            btnFAcMediaP.setEnabled(false);
+        }
                 
-        for(Prod a : listaP)
+        for(Pintura a : listaP)
         {
             tblP.addRow(new Object[]{a.getId(), a.getName(), a.getStyle(), a.getAutor(), a.getDesc(), a.getSizeX(), a.getSizeY(), a.getValue()});
         }
                 
-        tblProd.setModel(tblP);
+        tblPintura.setModel(tblP);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -990,7 +993,7 @@ public class formDDS extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblClient;
-    private javax.swing.JTable tblProd;
+    private javax.swing.JTable tblPintura;
     private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 }
