@@ -4,21 +4,17 @@ import java.util.ArrayList;
 import model.Prod;
 
 public class controleProd {
-    static private ArrayList <Prod> conProd;
+    static private ArrayList <Prod> conProd = new ArrayList();;
     static private int auxId = 0;
-    
-    public controleProd(){
-        conProd = new ArrayList();
-    }
 
-    public ArrayList getConProd() {
+    static public ArrayList getConProd() {
         return conProd;
     }
      
-    public void addProd(String name, String style, String autor, double sizeX, double sizeY){
+    static public void addProd(String name, String style, String autor, double sizeX, double sizeY, double value){
         auxId++;
         
-        Prod p = new Prod(auxId, name, style, autor, sizeX, sizeY);
+        Prod p = new Prod(auxId, name, style, autor, sizeX, sizeY, value);
         
         conProd.add(p);
     }

@@ -17,13 +17,13 @@ import model.NullException;
  */
 public class formCadUser extends javax.swing.JFrame {
 
-    controleClient ctrC;
+    //controleClient ctrC;
         
     public formCadUser() {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        ctrC = new controleClient();
+        //ctrC = new controleClient();
     }
 
     /**
@@ -46,8 +46,8 @@ public class formCadUser extends javax.swing.JFrame {
         label3 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtAge = new javax.swing.JLabel();
-        txtPass1 = new javax.swing.JTextField();
+        label4 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +76,7 @@ public class formCadUser extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Cadastro User");
 
-        txtAge.setText("Idade:");
+        label4.setText("Idade:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,11 +89,10 @@ public class formCadUser extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCadastrar)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtAge)
+                        .addComponent(label4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(bntVolta)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -111,7 +110,10 @@ public class formCadUser extends javax.swing.JFrame {
                             .addGap(13, 13, 13)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtNome)
-                                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCadastrar)
+                        .addGap(79, 79, 79)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -137,11 +139,11 @@ public class formCadUser extends javax.swing.JFrame {
                     .addComponent(label3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAge))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label4))
+                .addGap(18, 18, 18)
                 .addComponent(btnCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bntVolta)
                 .addContainerGap())
         );
@@ -176,7 +178,7 @@ public class formCadUser extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuário Cadastrado");
             }
             
-            ctrC.addClient(nome, user, email, pass, age);
+            controleClient.addClient(nome, user, email, pass, age);
         }
         catch(NullException e)
         {
@@ -188,7 +190,7 @@ public class formCadUser extends javax.swing.JFrame {
         }
         catch(NumberFormatException e)
         {
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+            JOptionPane.showMessageDialog(null, "Idade deve ser um valor numérico");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -235,11 +237,11 @@ public class formCadUser extends javax.swing.JFrame {
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label2;
     private javax.swing.JLabel label3;
-    private javax.swing.JLabel txtAge;
+    private javax.swing.JLabel label4;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPass;
-    private javax.swing.JTextField txtPass1;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

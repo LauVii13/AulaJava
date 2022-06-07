@@ -17,13 +17,13 @@ import model.NullException;
  */
 public class formCadPixArt extends javax.swing.JFrame {
 
-    controleProd ctrP;
+    //controleProd ctrP;
         
     public formCadPixArt() {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        ctrP = new controleProd();
+        //ctrP = new controleProd();
     }
 
     /**
@@ -165,7 +165,8 @@ public class formCadPixArt extends javax.swing.JFrame {
             String autor = txtAutor.getText();
             double sizeX = Double.parseDouble(txtSizeX.getText());
             double sizeY = Double.parseDouble(txtSizeY.getText());
-
+            double value = 0;
+            
             if(txtName.getText().equals("") || txtStyle.getText().equals("") || txtAutor.getText().equals("") || txtSizeX.getText().equals("") || txtSizeY.getText().equals(""))
             {
                 throw new NullException();
@@ -179,7 +180,7 @@ public class formCadPixArt extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Obra Cadastrada");
             }
 
-            ctrP.addProd(nome, style, autor, sizeX, sizeY);
+            controleProd.addProd(nome, style, autor, sizeX, sizeY, value);
         }
         catch(NullException e)
         {
@@ -191,7 +192,7 @@ public class formCadPixArt extends javax.swing.JFrame {
         }
         catch(NumberFormatException e)
         {
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+            JOptionPane.showMessageDialog(null, "Horizontal e Vertical devem ser dadas em valores numéricos");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

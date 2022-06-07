@@ -4,27 +4,26 @@ import control.controleClient;
 import control.controleProd;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Client;
 import model.Prod;
 
-/**
- *
- * @author aluno
- */
 public class formDDS extends javax.swing.JFrame {
 
     private DefaultTableModel tblC;
     private DefaultTableModel tblP;
-    controleClient ctrC;
-    controleProd ctrP;
+    String excluir;
+    //controleClient ctrC;
+    //controleProd ctrP;
     
     public formDDS() {
         tblC = new DefaultTableModel();
         tblP = new DefaultTableModel();
         
-        ctrC = new controleClient();
-        ctrP = new controleProd();
+        
+        //ctrC = new controleClient();
+        //ctrP = new controleProd();
         
         tblC.addColumn("ID");
         tblC.addColumn("Nome");
@@ -46,7 +45,8 @@ public class formDDS extends javax.swing.JFrame {
 
         initComponents();
         this.setLocationRelativeTo(null);
-
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -59,7 +59,8 @@ public class formDDS extends javax.swing.JFrame {
         tblClient = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProd = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        txtPesquisa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -97,6 +98,11 @@ public class formDDS extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblClient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClientMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblClient);
 
         tblProd.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,32 +126,38 @@ public class formDDS extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblProd);
 
-        jButton1.setText("Exclusão");
+        btnExcluir.setText("Exclusão");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(534, 534, 534)
-                .addComponent(ac)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ac)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 580, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(bntVolta)
-                                .addGap(23, 23, 23))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(131, 131, 131))))))
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(bntVolta)
+                            .addGap(23, 23, 23))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(131, 131, 131)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,6 +165,10 @@ public class formDDS extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(ac)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExcluir)
+                    .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(168, 168, 168)
                 .addComponent(bntVolta)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -160,9 +176,7 @@ public class formDDS extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(jButton1)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         pack();
@@ -178,6 +192,18 @@ public class formDDS extends javax.swing.JFrame {
         mostrarC();
         mostrarP();
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        controleClient.excluir(excluir);
+        mostrarC();
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void tblClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientMouseClicked
+        int linhaSelec = tblClient.getSelectedRow();
+        
+
+        excluir = tblClient.getValueAt(linhaSelec, 0).toString();        // TODO add your handling code here:
+    }//GEN-LAST:event_tblClientMouseClicked
 
     public static void main(String args[]) {
         try {
@@ -210,7 +236,7 @@ public class formDDS extends javax.swing.JFrame {
     public void mostrarC(){
         tblC.setNumRows(0);
         
-        ArrayList <Client> listaC = ctrC.getConClient();
+        ArrayList <Client> listaC = controleClient.getConClient();
                 
         for(Client a : listaC)
         {
@@ -223,7 +249,7 @@ public class formDDS extends javax.swing.JFrame {
     public void mostrarP(){
         tblP.setNumRows(0);
         
-        ArrayList <Prod> listaP = ctrP.getConProd();
+        ArrayList <Prod> listaP = controleProd.getConProd();
                 
         for(Prod a : listaP)
         {
@@ -236,10 +262,11 @@ public class formDDS extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ac;
     private javax.swing.JButton bntVolta;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblClient;
     private javax.swing.JTable tblProd;
+    private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 }
