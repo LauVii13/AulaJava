@@ -6,6 +6,7 @@
 package view;
 
 import control.controleClient;
+import control.controleProd;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
@@ -19,6 +20,11 @@ public class formArt extends javax.swing.JFrame {
     public formArt() {       
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        if(!controleClient.getConClient().isEmpty() || !controleProd.getConProd().isEmpty())
+        {
+            btnDDS.setEnabled(true);
+        }
     }
 
     /**
@@ -33,7 +39,7 @@ public class formArt extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnCadUser = new javax.swing.JButton();
         btnCadPixArt = new javax.swing.JButton();
-        btnCadUser2 = new javax.swing.JButton();
+        btnDDS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,11 +62,12 @@ public class formArt extends javax.swing.JFrame {
             }
         });
 
-        btnCadUser2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCadUser2.setText("Dados do Sistema");
-        btnCadUser2.addActionListener(new java.awt.event.ActionListener() {
+        btnDDS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnDDS.setText("Dados do Sistema");
+        btnDDS.setEnabled(false);
+        btnDDS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadUser2ActionPerformed(evt);
+                btnDDSActionPerformed(evt);
             }
         });
 
@@ -79,7 +86,7 @@ public class formArt extends javax.swing.JFrame {
                             .addComponent(btnCadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnCadPixArt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCadUser2, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                .addComponent(btnDDS, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -92,7 +99,7 @@ public class formArt extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnCadPixArt)
                 .addGap(18, 18, 18)
-                .addComponent(btnCadUser2)
+                .addComponent(btnDDS)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -111,11 +118,11 @@ public class formArt extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCadPixArtActionPerformed
 
-    private void btnCadUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadUser2ActionPerformed
+    private void btnDDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDDSActionPerformed
         JFrame j = new formDDS();
         j.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnCadUser2ActionPerformed
+    }//GEN-LAST:event_btnDDSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,7 +162,7 @@ public class formArt extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadPixArt;
     private javax.swing.JButton btnCadUser;
-    private javax.swing.JButton btnCadUser2;
+    private javax.swing.JButton btnDDS;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

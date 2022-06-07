@@ -8,12 +8,22 @@ public class Prod {
     private double sizeY;
     private String name;
     private double value;
+    private String desc;
 
-    public Prod(int id, String name, String style, String autor, double sizeX, double sizeY, double value) {
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Prod(int id, String name, String style, String autor, String desc, double sizeX, double sizeY, double value) {
         this.id = id;
         this.name = name;
         this.style = style;
         this.autor = autor;
+        this.desc = desc;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.value = value;
@@ -24,9 +34,9 @@ public class Prod {
         this.name = "";
         this.style = "";
         this.autor = "";
+        this.desc = "";
         this.sizeX = 0;
         this.sizeY = 0;
-        this.value = 0;
     }
 
     public String getName() {

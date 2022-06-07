@@ -17,13 +17,12 @@ public class Client {
         this.age = age;
     }
     
-    public Client(int id) {
-        this.id = id;
+    public Client() {
+        this.id = 0;
         this.name = "";
         this.user = "";
         this.email = "";
         this.pass = "";
-        this.age = 0;
     }
 
     public int getId() {

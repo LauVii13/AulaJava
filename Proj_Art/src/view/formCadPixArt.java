@@ -48,6 +48,10 @@ public class formCadPixArt extends javax.swing.JFrame {
         txtAutor = new javax.swing.JTextField();
         label2 = new javax.swing.JLabel();
         txtSizeX = new javax.swing.JTextField();
+        txtDesc = new javax.swing.JTextField();
+        label4 = new javax.swing.JLabel();
+        txtAge1 = new javax.swing.JLabel();
+        txtValue = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -83,6 +87,10 @@ public class formCadPixArt extends javax.swing.JFrame {
 
         label2.setText("Autor:");
 
+        label4.setText("Descrição:");
+
+        txtAge1.setText("Preço:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,25 +106,35 @@ public class formCadPixArt extends javax.swing.JFrame {
                         .addComponent(btnCadastrar)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(label3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtSizeY, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSizeX, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bntVolta)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(39, 39, 39)
                                     .addComponent(label1))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addContainerGap()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(label3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                        .addComponent(label2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label4, javax.swing.GroupLayout.Alignment.TRAILING))))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtSizeY, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtStyle)
-                                        .addComponent(txtAutor)
-                                        .addComponent(txtSizeX, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addComponent(bntVolta)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtStyle, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                                    .addComponent(txtAutor)
+                                    .addComponent(txtDesc, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addComponent(txtAge1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,6 +156,10 @@ public class formCadPixArt extends javax.swing.JFrame {
                     .addComponent(label2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSizeX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -145,10 +167,14 @@ public class formCadPixArt extends javax.swing.JFrame {
                     .addComponent(txtSizeY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAge1))
+                .addGap(18, 18, 18)
                 .addComponent(btnCadastrar)
                 .addGap(13, 13, 13)
                 .addComponent(bntVolta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,15 +189,16 @@ public class formCadPixArt extends javax.swing.JFrame {
             String nome = txtName.getText();
             String style = txtStyle.getText();
             String autor = txtAutor.getText();
+            String desc = txtDesc.getText();
             double sizeX = Double.parseDouble(txtSizeX.getText());
             double sizeY = Double.parseDouble(txtSizeY.getText());
-            double value = 0;
+            double value = Double.parseDouble(txtValue.getText());
             
-            if(txtName.getText().equals("") || txtStyle.getText().equals("") || txtAutor.getText().equals("") || txtSizeX.getText().equals("") || txtSizeY.getText().equals(""))
+            if(txtName.getText().equals("") || txtStyle.getText().equals("") || txtAutor.getText().equals("") || txtDesc.getText().equals("") || txtSizeX.getText().equals("") || txtSizeY.getText().equals("") || txtValue.getText().equals(""))
             {
                 throw new NullException();
             }
-            else if(sizeX <= 0 || sizeY <= 0)
+            else if(sizeX <= 0 || sizeY <= 0 || value <= 0)
             {
                 throw new NotNegativeException();
             }
@@ -180,7 +207,7 @@ public class formCadPixArt extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Obra Cadastrada");
             }
 
-            controleProd.addProd(nome, style, autor, sizeX, sizeY, value);
+            controleProd.addProd(nome, style, autor, desc, sizeX, sizeY, value);
         }
         catch(NullException e)
         {
@@ -192,7 +219,7 @@ public class formCadPixArt extends javax.swing.JFrame {
         }
         catch(NumberFormatException e)
         {
-            JOptionPane.showMessageDialog(null, "Horizontal e Vertical devem ser dadas em valores numéricos");
+            JOptionPane.showMessageDialog(null, "Largura, Altura e Preço devem ser dadas em valores numéricos");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -245,11 +272,15 @@ public class formCadPixArt extends javax.swing.JFrame {
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label2;
     private javax.swing.JLabel label3;
+    private javax.swing.JLabel label4;
     private javax.swing.JLabel txtAge;
+    private javax.swing.JLabel txtAge1;
     private javax.swing.JTextField txtAutor;
+    private javax.swing.JTextField txtDesc;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtSizeX;
     private javax.swing.JTextField txtSizeY;
     private javax.swing.JTextField txtStyle;
+    private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 }

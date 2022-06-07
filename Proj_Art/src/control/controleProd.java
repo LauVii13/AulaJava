@@ -11,11 +11,24 @@ public class controleProd {
         return conProd;
     }
      
-    static public void addProd(String name, String style, String autor, double sizeX, double sizeY, double value){
+    static public void addProd(String name, String style, String autor, String desc, double sizeX, double sizeY, double value){
         auxId++;
         
-        Prod p = new Prod(auxId, name, style, autor, sizeX, sizeY, value);
+        Prod p = new Prod(auxId, name, style, autor, desc, sizeX, sizeY, value);
         
         conProd.add(p);
     }
+    
+        static public void excluir(String id)
+    {
+        for (Prod a: conProd)
+        {
+            String aux = String.valueOf(a.getId());
+            if(aux.equals(id))
+            {
+                conProd.remove(a);
+                break;
+            }
+        }
+    } 
 }
