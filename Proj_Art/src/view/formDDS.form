@@ -27,110 +27,74 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="457" max="-2" attributes="0"/>
+              <Component id="ac" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="btnExcluirC" min="-2" pref="129" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-              <Component id="btnFVelhoC" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnIdC" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnFMediaP" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="btnFNovoC" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnFCaroP" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnFBaratoP" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnFAcMediaP" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnDescP" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnExcluirP" min="-2" pref="144" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="315" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
-                      <Component id="btnF60C" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="223" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="bntVolta" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="538" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="534" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="ac" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnNameC" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnEmailC" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnUserC" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="txtPesquisa" min="-2" pref="267" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="448" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnIdP" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="btnNameP" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnAutorP" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtPesquisa" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnIdC" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnEmailC" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnNameC" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnUserC" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnNameP" max="32767" attributes="0"/>
+                                  <Component id="btnAutorP" max="32767" attributes="0"/>
+                                  <Component id="btnDescP" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnIdP" alignment="1" min="-2" pref="105" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btnFCaroP" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnFBaratoP" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnFMediaP" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnFAcMediaP" min="-2" pref="105" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnExcluirP" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                  <Component id="btnFMediaC" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="1059" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnExcluirC" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="btnFVelhoC" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnFNovoC" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnFMediaC" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnF60C" min="-2" pref="105" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="bntVolta" min="-2" pref="105" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -138,88 +102,61 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Component id="ac" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="ac" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane1" alignment="0" pref="254" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtPesquisa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnNameC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnUserC" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnNameP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnUserC" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAutorP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtPesquisa" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="btnEmailC" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnEmailC" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnDescP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnIdC" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnIdP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="btnIdC" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnExcluirC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnExcluirP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="bntVolta" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnFVelhoC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnFNovoC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnFCaroP" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnFBaratoP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnF60C" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnFMediaP" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnFAcMediaP" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnFVelhoC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFNovoC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFMediaC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnF60C" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFCaroP" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFBaratoP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFMediaP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFAcMediaP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="701" max="32767" attributes="0"/>
-                  <Component id="btnFMediaC" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnExcluirC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnExcluirP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bntVolta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -228,9 +165,9 @@
     <Component class="javax.swing.JLabel" name="ac">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="36" style="0"/>
+          <Font name="Consolas" size="36" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="DDS"/>
+        <Property name="text" type="java.lang.String" value="Dados do Sistema"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="bntVolta">
@@ -320,7 +257,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pesquisa:"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Consolas" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Busca:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnNameC">
@@ -397,7 +337,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFVelhoC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="+Velho"/>
+        <Property name="text" type="java.lang.String" value="C &gt; Idade"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -406,7 +346,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFNovoC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="+Novo"/>
+        <Property name="text" type="java.lang.String" value="C &lt; Idade"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -415,7 +355,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnF60C">
       <Properties>
-        <Property name="text" type="java.lang.String" value="+60"/>
+        <Property name="text" type="java.lang.String" value="Idade &gt; 60"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -424,7 +364,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFMediaC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="media"/>
+        <Property name="text" type="java.lang.String" value="M&#xe9;dia Idades"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -433,7 +373,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFCaroP">
       <Properties>
-        <Property name="text" type="java.lang.String" value="+caro"/>
+        <Property name="text" type="java.lang.String" value="P &gt; Valor"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -442,7 +383,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFBaratoP">
       <Properties>
-        <Property name="text" type="java.lang.String" value="+barato"/>
+        <Property name="text" type="java.lang.String" value="P &lt; Valor"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -451,7 +392,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFMediaP">
       <Properties>
-        <Property name="text" type="java.lang.String" value="media"/>
+        <Property name="text" type="java.lang.String" value="M&#xe9;dia Pre&#xe7;o"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -460,7 +401,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFAcMediaP">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&gt;media"/>
+        <Property name="text" type="java.lang.String" value="Valor &gt; M&#xe9;dia"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>

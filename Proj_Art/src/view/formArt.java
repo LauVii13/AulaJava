@@ -42,9 +42,11 @@ public class formArt extends javax.swing.JFrame {
         btnDDS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Not Digital Art");
         setBackground(new java.awt.Color(102, 102, 255));
+        setIconImages(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel1.setText("not digital art");
 
         btnCadUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -82,7 +84,7 @@ public class formArt extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -101,7 +103,7 @@ public class formArt extends javax.swing.JFrame {
                 .addComponent(btnCadPixArt)
                 .addGap(18, 18, 18)
                 .addComponent(btnDDS)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
