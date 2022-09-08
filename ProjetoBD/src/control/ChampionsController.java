@@ -20,6 +20,10 @@ public class ChampionsController {
     public void CDel(String name) throws SQLException{
         cDAO.excluir(name);
     }
+    
+    public ArrayList<Champions> search() throws SQLException{
+        return cDAO.search();
+    }
 }
 
 
